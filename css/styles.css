@@ -24,6 +24,7 @@
 
 .gallery__image:hover {
   transform: scale(1.03);
+  filter: grayscale(100%);
 }
 
 .gallery__image {
