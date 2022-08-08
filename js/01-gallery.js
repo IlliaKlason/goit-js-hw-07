@@ -29,13 +29,11 @@ function selectedImage(e) {
    if (e.target.nodeName !== "IMG") {
       return;
    }
-   console.log(e);
    document.addEventListener("keydown", closeByKey);
 
    function closeByKey(e) {
       if (e.key === "Escape") instance.close();
 
-      console.log("fsfs")
 
       body.classList.remove('no-scroll');
       document.removeEventListener("keydown", closeByKey);

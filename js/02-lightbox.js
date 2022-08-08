@@ -30,4 +30,3 @@ let lightbox = new SimpleLightbox(".gallery a", {
 
 });
 
-console.log(galleryItems);
