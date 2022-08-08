@@ -18,7 +18,7 @@ gallery.insertAdjacentHTML(
       .join("")
 );
 
-// SimpleLightbox - https://simplelightbox.com
+
 
 let lightbox = new SimpleLightbox(".gallery a", {
    captionsData: "alt",
@@ -26,7 +26,5 @@ let lightbox = new SimpleLightbox(".gallery a", {
    captionPosition: 'bottom',
    close: false,
    showCounter: false,
-
-
 });
 
