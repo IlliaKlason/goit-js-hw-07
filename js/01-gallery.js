@@ -8,13 +8,13 @@ gallery.insertAdjacentHTML(
    "afterbegin",
    galleryItems
       .map(
-         (galleryItem) =>
+         ({ original, preview, description }) =>
             `<div class="gallery__item">
-        <a class="gallery__link" href="${galleryItem.original}">
+        <a class="gallery__link" href="${original}">
         <img class="gallery__image"
-        src="${galleryItem.preview}" 
-        data-source="${galleryItem.original}"
-        alt= "${galleryItem.description}"></a></div>`
+        src="${preview}" 
+        data-source="${original}"
+        alt= "${description}"></a></div>`
       )
       .join("")
 );
@@ -27,30 +27,31 @@ function selectedImage(e) {
    e.preventDefault();
 
    if (e.target.nodeName !== "IMG") {
-      return
+      return;
    }
+   console.log(e);
+   document.addEventListener("keydown", closeByKey);
 
+   function closeByKey(e) {
+      if (e.key === "Escape") instance.close();
 
+      console.log("fsfs")
+
+      body.classList.remove('no-scroll');
+      document.removeEventListener("keydown", closeByKey);
+   }
    const imgLink = e.target.dataset.source;
    const instance = basicLightbox.create(`<img src="${imgLink}">`);
    instance.show();
 
-
-   document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") instance.close();
-      body.classList.remove('no-scroll');
-   });
 }
 
 
 document.addEventListener("click", (e) => {
    if (e.target.nodeName === "IMG") {
-      body.classList.toggle('no-scroll');
+      body.classList.add('no-scroll');
    } else {
-      body.classList.toggle('no-scroll');
+      body.classList.remove('no-scroll');
    }
-
 });
-
-
 
