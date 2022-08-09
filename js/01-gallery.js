@@ -32,7 +32,7 @@ function selectedImage(e) {
    document.addEventListener("keydown", closeByKey);
 
    function closeByKey(e) {
-      if (e.key === "Escape") instance.close();
+      if (e.code === "Escape") instance.close();
 
 
       body.classList.remove('no-scroll');
