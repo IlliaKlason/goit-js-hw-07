@@ -32,11 +32,14 @@ function selectedImage(e) {
    document.addEventListener("keydown", closeByKey);
 
    function closeByKey(e) {
-      if (e.code === "Escape") instance.close();
+      if (e.code !== "Escape") {
+         return
+      } else {
+         instance.close();
+         body.classList.remove('no-scroll');
+         document.removeEventListener("keydown", closeByKey);
+      }
 
-
-      body.classList.remove('no-scroll');
-      document.removeEventListener("keydown", closeByKey);
    }
    const imgLink = e.target.dataset.source;
    const instance = basicLightbox.create(`<img src="${imgLink}">`);
